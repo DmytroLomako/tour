@@ -1,4 +1,4 @@
-import travel_agency
+import project
 
 if __name__ ==  "__main__":
-    travel_agency.travel_agency.run(debug = True)
+    project.travel_agency.run(debug = True)
