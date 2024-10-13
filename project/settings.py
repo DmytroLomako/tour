@@ -1,3 +1,4 @@
+
 import flask
 import flask_migrate
 import flask_sqlalchemy
@@ -11,7 +12,7 @@ travel_agency = flask.Flask(
 )
 
 
-travel_agency.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///data.db'
+travel_agency.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db" 
 
 DATABASE = flask_sqlalchemy.SQLAlchemy(app=travel_agency)
 MIGRATE = flask_migrate.Migrate(app=travel_agency, db=DATABASE)
