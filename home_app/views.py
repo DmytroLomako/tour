@@ -1,0 +1,15 @@
+import flask
+from .models import User_responce
+from project.settings import DATABASE
+
+def render_home():
+    user = User_responce(username = flask.request.form.get('client_name'),
+            email = flask.request.form.get('client_email'),
+            rewiew = flask.request.form.get('client_review'))
+
+    if flask.request.method == 'POST':
+
+        DATABASE.session.add(user)
+        DATABASE.session.commit()
+        
+    return flask.render_template(template_name_or_list= "home.html")
