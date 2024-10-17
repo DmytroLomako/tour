@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 
+{% block title %}
+    registration
+{% endblock %}
+
 {% block content %}
-    <form method = 'post'>
-        <input type="text", name = "username" placeholder="USERNAME">
-        <input type="text", name = "password" placeholder="PASSWORD">
-        <button type="submit">SUBMIT</button>
+    <form method = "post">
+        <input name = username placeholder='Username' type="text">
+        <input name = password placeholder='Password' type="text">
+        <button type="submit"> Підтвердити </button>
     </form>
 {% endblock %}

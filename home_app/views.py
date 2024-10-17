@@ -1,11 +1,10 @@
-import flask
-from .models import User
+import flask, flask_login
+from .models import User_responce
 from project.settings import DATABASE
-from project.mail_config import mail, ADMINISTRATOR_ADDRESS
-from flask_mail import Message
+from project.login_manager import login_manager
 
 def render_home():
-    user = User(username = flask.request.form.get('client_name'),
+    user = User_responce(username = flask.request.form.get('client_name'),
             email = flask.request.form.get('client_email'),
             rewiew = flask.request.form.get('client_review'))
 
@@ -24,3 +23,5 @@ def render_home():
         DATABASE.session.commit()
         
     return flask.render_template(template_name_or_list= "home.html")
+
+

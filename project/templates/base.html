@@ -1,20 +1,16 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}  {% endblock %}</title>
+    </head>
+    <body>
+        
+        <header>
+            <a href="/">HOME</a>
+            <a href="/tour/">TOUR</a>
+            <a href="/registration/">REGISTRATION</a>
+            <a href="/authorization/">AUTHORIZATION</a>
+        </header>
+        {% block content %}
 
-    <title>{% block title %}{% endblock %}Home</title>
-</head>
-<body>
-
-    <a href="/">HOME</a>
-    <a href="/tour/">TOUR</a>
-    <a href="/user/">USER</a>
-
-    {% block content %}
-
-    {% endblock %}
-
-
-</body>
-</html> 
+        {% endblock %}

@@ -2,6 +2,7 @@
 import tour
 from .settings import travel_agency
 import home_app
+import user_app
 
 tour.tour_app.add_url_rule(
     rule = '/tour/',
@@ -33,10 +34,26 @@ tour.tour_app.add_url_rule(
     methods=["GET", "POST"]
 )
 
+user_app.user_app.add_url_rule(
+    rule = '/registration/',
+    view_func = user_app.render_reg,
+    methods=["GET", "POST"]
+)
+
+user_app.user_app.add_url_rule(
+    rule = '/authorization/',
+    view_func = user_app.render_auth,
+    methods=["GET", "POST"]
+)
+
 travel_agency.register_blueprint(
     blueprint= tour.tour_app
 )
 
 travel_agency.register_blueprint(
     blueprint= home_app.home
+)
+
+travel_agency.register_blueprint(
+    blueprint= user_app.user_app
 )

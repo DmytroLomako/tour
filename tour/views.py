@@ -1,10 +1,12 @@
 import flask
 from .models import Tour
 from project.settings import travel_agency
+from project.settings import DATABASE
 
 all_titles = []
 with travel_agency.app_context():
     all_tours = Tour.query.all()
+
     tour_paris = Tour.query.filter_by(title='Paris').first()
     tour_london = Tour.query.filter_by(title='London').first()
     tour_tokyo = Tour.query.filter_by(title='Tokyo').first()
