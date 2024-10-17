@@ -45,12 +45,6 @@ user_app.user_app.add_url_rule(
     methods=["GET", "POST"]
 )
 
-user_app.user_app.add_url_rule(
-    rule = '/user/',
-    view_func = user_app.render_user,
-    methods=["GET", "POST"]
-)
-
 travel_agency.register_blueprint(
     blueprint= tour.tour_app
 )

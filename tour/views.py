@@ -1,13 +1,21 @@
 import flask
 from .models import Tour
 from project.settings import travel_agency
+from project.settings import DATABASE
 
 all_titles = []
 with travel_agency.app_context():
     all_tours = Tour.query.all()
-    tour_paris = Tour.query.filter_by(title='Paris').first()
-    tour_london = Tour.query.filter_by(title='London').first()
-    tour_tokyo = Tour.query.filter_by(title='Tokyo').first()
+    if len(all_tours) > 0:
+        tour_paris = Tour.query.filter_by(title='Paris').first()
+        tour_london = Tour.query.filter_by(title='London').first()
+        tour_tokyo = Tour.query.filter_by(title='Tokyo').first()
+    else:
+        paris = Tour(title = 'Paris', date = '01.01.2025', country = 'France', price = '2000', description = 'Paris is the capital of France')
+        london = Tour(title = 'London', date = '02.01.2025', country = 'UK', price = '3000', description = 'London is the capital of the United Kingdom')
+        tokyo = Tour(title = 'Tokyo', date = '03.01.2025', country = 'Japan', price = '4000', description = 'Tokyo is the capital of Japan')
+        DATABASE.session.add_all([paris, london, tokyo])
+        DATABASE.session.commit()
 for tour in all_tours:
     print(tour.title)
     all_titles.append(tour.title)
