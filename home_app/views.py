@@ -4,6 +4,8 @@ from project.login_manager import login_manager
 from flask_mail import Message
 from project.mail_config import ADMINISTRATOR_ADDRESS, mail
 
+
+
 is_login = False
 
 def render_home():
@@ -18,23 +20,29 @@ def render_home():
     if flask.request.method == 'POST':
 
         
-        print(flask.request.form.get("send_email"))
         
-    
+        
+        if flask.request.form.get("send_email") == "email":
 
-        try:
+            try:
 
-            message = Message(
-                f"Dear, {flask.request.form.get('client_name')}",
-                sender = ADMINISTRATOR_ADDRESS,
-                recipients= flask.request.form["client_email"],
-                body = "Your review was saved"
-            )
+                message = Message(
+                    f"Dear, {flask.request.form.get('client_name')}",
+                    sender = ADMINISTRATOR_ADDRESS,
+                    recipients= [str(flask.request.form["client_email"])],
+                    body = f"Your review '{flask.request.form["client_review"]}' was saved"
+                )
 
-            mail.send(message)
-        except:
-            return "<p>email is not exist</p>"
-
-    return flask.render_template("home.html", is_login=is_login)
+                mail.send(message)
+            except:
+                return "<p>email is not exist</p>"
+        elif flask.request.form.get("send_email") == None:
+            flask_login.logout_user()
+            return flask.redirect("/")
+        
+    try:
+        return flask.render_template("home.html", is_login=is_login, name = flask_login.current_user.username)
+    except:
+        return flask.render_template("home.html", is_login=is_login, name = "")
 
 
