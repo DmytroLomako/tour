@@ -22,18 +22,18 @@ def render_home():
         
     
 
-        try:
+        # try:
 
-            message = Message(
-                f"Dear, {flask.request.form.get('client_name')}",
-                sender = ADMINISTRATOR_ADDRESS,
-                recipients= flask.request.form["client_email"],
-                body = "Your review was saved"
-            )
+        message = Message(
+            f"Dear, {flask.request.form.get('client_name')}",
+            sender = ADMINISTRATOR_ADDRESS,
+            recipients= ["dmitriychep2011@gmail.com"],
+            body = "Your review was saved"
+        )
 
-            mail.send(message)
-        except:
-            return "<p>email is not exist</p>"
+        mail.send(message)
+        # except:
+        #     return "<p>email is not exist</p>"
 
     return flask.render_template("home.html", is_login=is_login)
 
