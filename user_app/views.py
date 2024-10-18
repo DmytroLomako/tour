@@ -2,21 +2,31 @@ import flask, flask_login
 from project.settings import DATABASE
 from .models import User
 
+is_login = True
+
 def render_auth():
+    global is_login
+    try:
+        print(flask_login.current_user.username)
+    except:
+        is_login = False
     if flask.request.method == "POST":
         for user in User.query.filter_by(username = flask.request.form['username']):
             username = user.username
 
-        user = User(
-            username = username,
-            password = flask.request.form["password"]
-        )
 
-        flask_login.login_user(user)
-        return flask.render_template('auth.html')
+
+            flask_login.login_user(user)
+        try:
+            return flask.render_template('auth.html', is_login = is_login, username = flask_login.current_user.username)
+        except:
+            return flask.render_template('auth.html', is_login = is_login, username = "You are Not registred")
 
     else:
-        return flask.render_template('auth.html')
+        try:
+            return flask.render_template('auth.html', is_login = is_login, username = flask_login.current_user.username)
+        except:
+            return flask.render_template('auth.html', is_login = is_login, username = "You are Not registred")
 
 def render_reg():
     if flask.request.method == "POST":

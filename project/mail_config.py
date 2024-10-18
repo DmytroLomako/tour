@@ -3,7 +3,7 @@ from project.settings import travel_agency
 
 
 ADMINISTRATOR_ADDRESS = "123TravelAgency123@gmail.com"
-ADMINISTRATOR_PASSWORD = "Travel_Travel321" 
+ADMINISTRATOR_PASSWORD = "cuso wtbg iimi szdl" 
 
 
 travel_agency.config["MAIL_SERVER"] = "smtp.gmail.com"

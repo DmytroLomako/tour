@@ -1,16 +1,30 @@
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% block title %}  {% endblock %}</title>
-    </head>
-    <body>
-        
-        <header>
-            <a href="/">HOME</a>
-            <a href="/tour/">TOUR</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}  {% endblock %}</title>
+</head>
+<body>
+    <header>
+        <a href="/">HOME</a>
+        <a href="/tour/">TOUR</a>
+
+        {% if is_login %}
+            <form method = "post">
+                <p>Welcome, {{ username }}</p>
+                <button type = "submit" class = "logout">LOGOUT</button>
+            </form>
+        {% else %}
             <a href="/registration/">REGISTRATION</a>
             <a href="/authorization/">AUTHORIZATION</a>
-        </header>
-        {% block content %}
-
+        {% endif %}
+        
+        {% block line %}
         {% endblock %}
+    </header>
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
