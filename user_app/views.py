@@ -5,7 +5,7 @@ from .models import User
 is_login = True
 
 def render_auth():
-    global is_login
+    global is_login, username
     try:
         print(flask_login.current_user.username)
     except:
@@ -17,6 +17,7 @@ def render_auth():
 
 
             flask_login.login_user(user)
+            return flask.redirect("/")
         try:
             return flask.render_template('auth.html', is_login = is_login, username = flask_login.current_user.username)
         except:

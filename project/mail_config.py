@@ -1,9 +1,11 @@
 from flask_mail import Mail 
 from project.settings import travel_agency
 
-
 ADMINISTRATOR_ADDRESS = "123travelagency123@gmail.com"
 ADMINISTRATOR_PASSWORD = "hqnjfvqfjffqvqhf" 
+
+# ADMINISTRATOR_ADDRESS = "123TravelAgency123@gmail.com"
+# ADMINISTRATOR_PASSWORD = "secret password" 
 
 
 travel_agency.config["MAIL_SERVER"] = "smtp.gmail.com"

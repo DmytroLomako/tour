@@ -25,13 +25,18 @@ def render_tour():
     except:
         is_login = False
 
-    return flask.render_template(template_name_or_list='tour.html', titles = all_titles, is_login = is_login)
-
+    if flask.request.method == "POST":
+       flask_login.logout_user() 
+       return flask.redirect("/tour/")
+    try:
+        return flask.render_template(template_name_or_list='tour.html', titles = all_titles, is_login = is_login, name = flask_login.current_user.username)
+    except:
+        return flask.render_template(template_name_or_list='tour.html', titles = all_titles, is_login = is_login, name = "")
 def render_paris():
-    return flask.render_template(template_name_or_list='paris.html', title = tour_paris.title, date = tour_paris.date, country = tour_paris.country, is_login = is_login)
+    return flask.render_template(template_name_or_list='paris.html', title = tour_paris.title, date = tour_paris.date, country = tour_paris.country, is_login = is_login, name = flask_login.current_user.username)
 
 def render_london():
-    return flask.render_template(template_name_or_list='london.html', title = tour_london.title, date = tour_london.date, country = tour_london.country, is_login = is_login)
+    return flask.render_template(template_name_or_list='london.html', title = tour_london.title, date = tour_london.date, country = tour_london.country, is_login = is_login, name = flask_login.current_user.username)
 
 def render_tokyo():
-    return flask.render_template(template_name_or_list='tokyo.html', title = tour_tokyo.title, date = tour_tokyo.date, country = tour_tokyo.country, is_login = is_login)
+    return flask.render_template(template_name_or_list='tokyo.html', title = tour_tokyo.title, date = tour_tokyo.date, country = tour_tokyo.country, is_login = is_login, name = flask_login.current_user.username)
