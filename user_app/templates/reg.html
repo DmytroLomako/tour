@@ -3,11 +3,14 @@
 {% block title %}
     registration
 {% endblock %}
+{% block link %} 
+    <link rel="stylesheet" href="{{ url_for('user.static', filename = 'css/style.css') }}" >
+{% endblock %}
 
 {% block content %}
     <form method = "post">
         <input name = username placeholder='Username' type="text">
         <input name = password placeholder='Password' type="text">
-        <button type="submit"> Підтвердити </button>
+        <button type="submit">REGISTRATION</button>
     </form>
 {% endblock %}

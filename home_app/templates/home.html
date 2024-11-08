@@ -1,15 +1,32 @@
 {% extends "base.html" %}
 
 {% block title %}Page Home{% endblock %}
-
+{% block link %} 
+    <link rel="stylesheet" href="{{ url_for('home.static', filename = 'css/style.css') }}" >
+{% endblock %}
 
 {% block content %}
     <form method="post">
         <form method="post">
-            <input required name="client_name" placeholder="Введіть ім'я">
-            <input name="client_email" placeholder="Введіть email">
-            <textarea name="client_review" placeholder="Напишіть ваш відгук"></textarea>
-            <button type="submit" name = "send_email" value = "email"> Підтвердити </button>
+            <h1>YOUR NAME:</h1>
+            <input required name="client_name" id="inputform">
+            <h1>YOUR EMAIL:</h1>
+            <input name="client_email" id="inputform">
+            <h1>YOUR RESPONSE:</h1>
+            <div id="response">
+                <textarea name="client_review" id="textform"></textarea>
+                <button type="submit" name = "send_email" value = "email">SEND</button>
+            </div>
+            {% if is_login %}
+                <form method = "post">
+                    <img src="{{ url_for('home.static', filename= 'img/image2.png')}}" class = "img2">
+                    <p class="paragraph">{{ name }}</p>
+                    <button type = "submit" class = "logout">LOGOUT</button>
+                </form>
+            {% else %}
+                <a href="/registration/">REGISTRATION</a>
+                <a href="/authorization/">AUTHORIZATION</a>
+            {% endif %}
         </form>
     </form>
 
