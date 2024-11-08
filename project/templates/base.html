@@ -3,25 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'styles/project.css')}}">
     <title>{% block title %}  {% endblock %}</title>
 </head>
 <body>
+    <img src="{{ url_for('static', filename = 'images/image.png')}}" class = "bg_img">
+    
     <header>
-        <a href="/">HOME</a>
-        <a href="/tour/">TOUR</a>
-
-        {% if is_login %}
-            <form method = "post">
-                <p>Welcome, {{ name }}</p>
-                <button type = "submit" class = "logout">LOGOUT</button>
-            </form>
-        {% else %}
-            <a href="/registration/">REGISTRATION</a>
-            <a href="/authorization/">AUTHORIZATION</a>
-        {% endif %}
         
-        {% block line %}
-        {% endblock %}
+        <div class = "frame1">
+
+            {% if is_login %}
+                <form method = "post">
+                    <p>Welcome, {{ name }}</p>
+                    <button type = "submit" class = "logout">LOGOUT</button>
+                </form>
+            {% else %}
+                
+
+                <!-- <a href="/authorization/">AUTHORIZATION</a> -->
+            {% endif %}
+            
+            {% block line %}
+            {% endblock %}
+        </div>
     </header>
 
     {% block content %}
