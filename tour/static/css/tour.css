@@ -1,15 +1,3 @@
-/* div {
-    border: 1px solid #000000;
-    border-radius: 20px;
-    width: 865px;
-    height: 620px;
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    background-color: rgba(233, 233, 233, 0.85);
-} */
-
-
 div {
     border: 1px solid #000000;
     border-radius: 20px;
@@ -40,7 +28,6 @@ div {
     margin-top: 8px;
 }
 
-
 h1 {
     font-size: 60px;
     margin-left: 880px;
@@ -55,6 +42,55 @@ h1 {
 
 
 .tokyosign {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    margin-top: 175px;
+    margin-left: 1085px;
+}
+
+.paris {
+    position: absolute;
+    width: 300px;
+    height: 180px;
+    margin-top: 45px;
+    margin-left: 20px;
+}
+
+.parissign {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    margin-top: 175px;
+    margin-left: 1085px;
+}
+
+.parislink {
+    text-decoration: none;
+    color: #1E35CA;
+    font-size: 30px;
+    margin-left: 120px;
+    margin-top: 8px;
+}
+
+.madrid {
+    position: absolute;
+    width: 300px;
+    height: 180px;
+    margin-top: 45px;
+    margin-left: 20px;
+}
+
+
+.madridlink {
+    text-decoration: none;
+    color: #7a8707;
+    font-size: 30px;
+    margin-left: 110px;
+    margin-top: 8px;
+}
+
+.madridsign {
     position: absolute;
     width: 60px;
     height: 60px;
