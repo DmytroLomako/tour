@@ -3,11 +3,16 @@
 {% block title %}
     tour
 {% endblock %}
+{% block link %} 
+    <link rel="stylesheet" href="{{ url_for('tour.static', filename = 'css/tour.css') }}" >
+{% endblock %}
 
 {% block content %}
-    {% for title in titles %}
-
-        <a href="{{title}}/">{{ title }}</a>
-
-    {% endfor %}
+    <div>
+        <a href="tokyo/" class="tokyolink">TOKYO</a>
+        <img src="{{ url_for('tour.static', filename= 'img/tokyo.png') }}" class="tokyo">
+        <h1>31.10.2024</h1>
+        <h1 class="price">3200$</h1>
+        <img src="{{ url_for('tour.static', filename= 'img/tokyo_sign.png') }}" class="tokyosign">
+    </div>
 {% endblock %}

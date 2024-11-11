@@ -1,0 +1,63 @@
+/* div {
+    border: 1px solid #000000;
+    border-radius: 20px;
+    width: 865px;
+    height: 620px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    background-color: rgba(233, 233, 233, 0.85);
+} */
+
+
+div {
+    border: 1px solid #000000;
+    border-radius: 20px;
+    width: 1175px;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    background-color: rgba(233, 233, 233, 0.85);
+    margin-top: 5px;
+}
+
+
+.tokyo {
+    position: absolute;
+    width: 300px;
+    height: 180px;
+    margin-top: 45px;
+    margin-left: 20px;
+}
+
+
+.tokyolink {
+    text-decoration: none;
+    color: #a02222;
+    font-size: 30px;
+    margin-left: 120px;
+    margin-top: 8px;
+}
+
+
+h1 {
+    font-size: 60px;
+    margin-left: 880px;
+    margin-top: -20px;
+}
+
+
+.price {
+    margin-left: 1000px;
+    margin-top: -30px;
+}
+
+
+.tokyosign {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    margin-top: 175px;
+    margin-left: 1085px;
+}
