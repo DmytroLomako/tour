@@ -27,10 +27,10 @@ def render_home():
             try:
 
                 message = Message(
-                    f"Dear, {flask.request.form.get('client_name')}",
+                    f"Hello, {flask.request.form.get('client_name')}",
                     sender = ADMINISTRATOR_ADDRESS,
                     recipients= [str(flask.request.form["client_email"])],
-                    body = f"Your review '{flask.request.form["client_review"]}' was saved"
+                    body = f"Your review '{flask.request.form["client_review"]}' was saved, thanks for your responce"
                 )
 
                 mail.send(message)
